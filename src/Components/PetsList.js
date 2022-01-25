@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import PetItem from "./PetItem";
-import petsStore from "../PetStore/PetStore";
+import petsStore from "../store/PetStore";
 import { observer } from "mobx-react";
 
-function PetsList({ petsStore }) {
+function PetsList() {
   const [query, setQuery] = useState("");
   const [type, setType] = useState("");
   // const [pets, setPets] = useState(petsData);
@@ -15,7 +15,7 @@ function PetsList({ petsStore }) {
         pet.type.includes(type)
     )
     .map((pet) => (
-      <PetItem key={pet.id} pet={pet} handleAdopt={petsStore.handleAdopt} />
+      <PetItem key={pet.id} pet={pet} handleAdopt={petsStore.Adopt} />
     ));
   return (
     <section id="doctors" class="doctor-section pt-140">
